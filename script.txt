@@ -1,0 +1,12 @@
+#!/bin/bash
+sleep 2
+rm DIRECTORY/donezo.mp4 #ignore warning on first use
+read -p "how many seconds? " seconds
+echo "$seconds seconds, understood"
+ffmpeg -loglevel 0 -framerate 1/.15 -start_number $((RANDOM%18489948+1)) -i %03d.jpg -pix_fmt yuv420p -vf scale=iw:-2 -profile:v baseline -level 3.0 -t $seconds -r 30 "donezo.mp4"
+echo "video created"
+sleep 2
+mv donezo.mp4 DIRECTORY
+echo "moved"
+echo "ENTIRE PROCESS COMPLETE"
+sleep 10
